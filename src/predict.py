@@ -63,11 +63,12 @@ predict_generator = predict_datagen.flow_from_directory(
 
 predictions = model.predict_generator(
     predict_generator,
-    verbose=2)
+    verbose=1)
 
 print(predictions)
 
 for fname, result in zip(predict_data, predictions):
     print(fname)
     print(result)
-    print("Dog" if result[0] > .5 else "Cat")
+    print("Cat" if result[0] >= .5 else "Dog")
+    print("\n")

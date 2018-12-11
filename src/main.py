@@ -208,6 +208,8 @@ val_loss = history.history['val_loss']
 # Get number of epochs
 epochs = range(len(acc))
 
+# Blue is training
+# Orange is validation
 # Plot training and validation accuracy per epoch
 plt.plot(epochs, acc)
 plt.plot(epochs, val_acc)
@@ -217,6 +219,8 @@ plt.show()
 
 plt.figure()
 
+# Blue is training
+# Orange is validation
 # Plot training and validation loss per epoch
 plt.plot(epochs, loss)
 plt.plot(epochs, val_loss)
