@@ -1,4 +1,3 @@
-import os, signal
 import zipfile
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
