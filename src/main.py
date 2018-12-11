@@ -2,6 +2,7 @@ import os, signal
 import zipfile
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import os.path
 
 from tensorflow.keras import layers
 from tensorflow.keras import Model
@@ -22,7 +23,6 @@ zip_ref.close()
 base_dir = './tmp/cats_and_dogs_filtered'
 train_dir = os.path.join(base_dir, 'train')
 validation_dir = os.path.join(base_dir, 'validation')
-
 
 # Directory with our training cat pictures
 train_cats_dir = os.path.join(train_dir, 'cats')
@@ -141,6 +141,8 @@ history = model.fit_generator(
     validation_steps=50,  # 1000 images = batch_size * steps
     verbose=2)
 
+model.save('my_model.h5')  # creates a HDF5 file 'my_model.h5'
+
 # Let's define a new Model that will take an image as input, and will output
 # intermediate representations for all layers in the previous model after
 # the first.
@@ -222,4 +224,3 @@ plt.title('Training and validation loss')
 
 plt.show()
 
-os.kill(os.getpid(), signal.SIGKILL)
